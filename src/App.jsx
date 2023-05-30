@@ -12,7 +12,6 @@ const App = () => {
     
     <>
       <GlobalStyles />
-      <p>Github Search App</p>
       <SearchForm setResults={setResults} setIsLoading={setIsLoading} />
       {isLoading ? (
         <p>Loading...</p>

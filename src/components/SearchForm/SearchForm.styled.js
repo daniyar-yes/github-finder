@@ -1,33 +1,40 @@
 import styled from 'styled-components';
-import devices from '../styles/Devices';
 
 export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        max-width: 40vw;
+        margin: auto;
+    }
 `;
 
 export const InputGroup = styled.div`
     display: flex;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
+
+    input {
+        flex: 1;
+        margin-right: 1em;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 800px;
+        margin: auto;
+    }
 `;
 
 export const StyledButton = styled.button`
-    width: 100%;
-
-@media ${devices.medium} {
-  width: 50%;
-}
-
-@media ${devices.large} {
-  width: 25%;
-}
+    flex: 0 0 auto;
 `;
 
 export const StyledLabel = styled.label`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -36,6 +43,7 @@ export const StyledLabel = styled.label`
 
 export const RadioButtonsContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    padding-top: 5px;
 `;

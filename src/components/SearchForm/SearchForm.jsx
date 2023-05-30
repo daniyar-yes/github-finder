@@ -34,7 +34,10 @@ const SearchForm = ({ setResults, setIsLoading }) => {
   return (
     <>
     <StyledForm onSubmit={handleSubmit}>
-      <RadioButtonsContainer>
+      
+    <StyledLabel>
+        Search GitHub Users or Organizations:
+        <RadioButtonsContainer>
     <label>
         <input
             type="radio"
@@ -42,7 +45,7 @@ const SearchForm = ({ setResults, setIsLoading }) => {
             checked={queryType === ''}
             onChange={handleQueryTypeChange} 
         />
-    User
+    Users
     </label>
     <label>
         <input
@@ -51,11 +54,9 @@ const SearchForm = ({ setResults, setIsLoading }) => {
             checked={queryType === '+type:org'}
             onChange={handleQueryTypeChange}
         />
-        Organization
+        Organizations
     </label>
     </RadioButtonsContainer>
-    <StyledLabel>
-        Search:
         <InputGroup>
           <input type="text" value={query} onChange={handleSearchChange} />
           <StyledButton type="submit">Submit</StyledButton>
