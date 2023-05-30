@@ -145,7 +145,7 @@ Error generating stack: `+i.message+`
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    min-width: 480px; 
+    min-width: 300px; 
     background-color: #ffffff;
   }
 
