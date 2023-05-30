@@ -34,10 +34,10 @@ const SearchResults = ({ results }) => {
   return (
     <StyledSearchResults>
       <StyledButtonsGroup>
-        <StyledButton onClick={handlePrevious} disabled={currentPage === 0}>
+        <StyledButton onClick={handlePrevious} disabled={currentPage === 0} aria-label="Previous">
           Previous Page
         </StyledButton>
-        <StyledButton onClick={handleNext} disabled={isLastPage}>
+        <StyledButton onClick={handleNext} disabled={isLastPage} aria-label="Next">
           Next Page
         </StyledButton>
       </StyledButtonsGroup>

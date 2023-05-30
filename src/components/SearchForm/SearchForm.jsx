@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyledForm, InputGroup, StyledButton, StyledLabel, RadioButtonsContainer } from './SearchForm.styled.js'
+import { StyledForm, InputGroup, StyledButton, StyledFieldset, RadioButtonsContainer } from './SearchForm.styled.js'
 
 
 const SearchForm = ({ setResults, setIsLoading }) => {
@@ -44,33 +44,39 @@ const SearchForm = ({ setResults, setIsLoading }) => {
   return (
     <>
     <StyledForm onSubmit={handleSubmit}>
-      <StyledLabel>
-          Search GitHub Users or Organizations:
+      <StyledFieldset>
+        <legend>Search for GitHub Users or Organizations:</legend>
           <RadioButtonsContainer>
-              <label>
                   <input
                       type="radio"
+                      id="user"
+                      name="userType"
                       value=""
                       checked={queryType === ''}
                       onChange={handleQueryTypeChange} 
                   />
-              Users
-              </label>
-              <label>
+                  <label htmlFor="user">
+                     Users
+                  </label>
+              
                   <input
                       type="radio"
+                      id="org"
+                      name="orgType"
                       value="+type:org"
                       checked={queryType === '+type:org'}
                       onChange={handleQueryTypeChange}
                   />
-                  Organizations
-              </label>
+                  <label htmlFor="org">
+                    Organizations
+                  </label>
           </RadioButtonsContainer>
           <InputGroup>
-            <input type="text" value={query} onChange={handleSearchChange} />
-            <StyledButton type="submit">Submit</StyledButton>
+            <label htmlFor='searchInput'>Search:</label>
+            <input type="text" id="searchInput" value={query} onChange={handleSearchChange} />
+            <StyledButton type="submit" aria-label='submit'>Submit</StyledButton>
           </InputGroup>
-      </StyledLabel>
+      </StyledFieldset>
     </StyledForm>
     </>
   )

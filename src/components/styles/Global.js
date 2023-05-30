@@ -21,6 +21,16 @@ const GlobalStyles = createGlobalStyle`
     text-align: center;
   }
 
+  header, main {
+    text-align: center;
+    margin: 10px;
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 10px;
+  }
+
   #root {
     width: 100%;
     max-width: 1200px;

@@ -32,13 +32,14 @@ export const StyledButton = styled.button`
     flex: 0 0 auto;
 `;
 
-export const StyledLabel = styled.label`
+export const StyledFieldset = styled.fieldset`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 1em;
+    border: none;
 `;
 
 export const RadioButtonsContainer = styled.div`

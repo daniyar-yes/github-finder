@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSearchResults = styled.div`
+export const StyledSearchResults = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;

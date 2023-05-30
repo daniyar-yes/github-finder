@@ -18,14 +18,20 @@ const App = () => {
     
     <>
       <GlobalStyles />
+      <header>Welcome to GitHub Finder!</header>
+      <main>
       <SearchForm setResults={searchCallback} setIsLoading={setIsLoading} />
       {isLoading ? (
         <p>Loading...</p>
       ) : hasSearched ? (
         results.length > 0 ? <SearchResults results={results}/> : <p>No results found</p>
       ) : (
-        <p>Start your search!</p>
+        <section>Start your search!</section>
       )}
+      </main>
+       <footer>
+            Daniyar Yeskaliyev © {new Date().getFullYear()}
+        </footer>
     </>
     
   )
