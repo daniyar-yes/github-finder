@@ -1,4 +1,3 @@
-// SearchResults.js
 import { useState, useEffect } from 'react';
 import SearchItem from '../SearchItem/SearchItem';
 import { StyledSearchResults, StyledButtonsGroup, StyledButton } from './SearchResults.styled.js'
