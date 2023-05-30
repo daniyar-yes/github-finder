@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const SearchForm = ({ setResults }) => {
+const SearchForm = ({ setResults, setIsLoading }) => {
 
   const [query, setQuery] = useState('');
   const [queryType, setQueryType] = useState('');
+  
 
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
@@ -15,6 +16,7 @@ const SearchForm = ({ setResults }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await fetch(`https://api.github.com/search/users?q=${query}${queryType}`);
@@ -23,6 +25,8 @@ const SearchForm = ({ setResults }) => {
       setResults(data.items)
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
