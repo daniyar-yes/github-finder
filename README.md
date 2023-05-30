@@ -14,7 +14,7 @@ The application is built using React and provides a responsive user interface fo
 
 # Setup and Installation
 
-- git clone https://github.com/your-username/github-finder.git
+- git clone https://github.com/daniyar-yes/github-finder.git
 - npm install
 - npm run dev
 
