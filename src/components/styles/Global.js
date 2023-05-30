@@ -17,6 +17,10 @@ const GlobalStyles = createGlobalStyle`
     background-color: #ffffff;
   }
 
+  p {
+    text-align: center;
+  }
+
   #root {
     width: 100%;
     max-width: 1200px;
