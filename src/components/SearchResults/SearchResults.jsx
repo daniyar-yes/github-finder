@@ -1,6 +1,7 @@
 // SearchResults.js
-import React, { useState, useEffect } from 'react';
-import SearchItem from './SearchItem';
+import { useState, useEffect } from 'react';
+import SearchItem from '../SearchItem/SearchItem';
+import { StyledSearchResults } from './SearchResults.styled.js'
 
 const SearchResults = ({ results }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -24,7 +25,7 @@ const SearchResults = ({ results }) => {
   const endIndex = startIndex + itemsPerPage;
 
   return (
-    <div>
+    <StyledSearchResults>
       {results.slice(startIndex, endIndex).map(item => (
         <SearchItem key={item.id} item={item} />
       ))}
@@ -34,7 +35,7 @@ const SearchResults = ({ results }) => {
       <button onClick={handleNext}>
         Next
       </button>
-    </div>
+      </StyledSearchResults>
   );
 };
 

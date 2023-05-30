@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { StyledForm, InputGroup, StyledButton, StyledLabel, RadioButtonsContainer } from './SearchForm.styled.js'
+
 
 const SearchForm = ({ setResults, setIsLoading }) => {
 
@@ -31,11 +33,8 @@ const SearchForm = ({ setResults, setIsLoading }) => {
   };
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <label>
-        Search:
-        <input type="text" value={query} onChange={handleSearchChange} />
-      </label>
+    <StyledForm onSubmit={handleSubmit}>
+      <RadioButtonsContainer>
     <label>
         <input
             type="radio"
@@ -54,9 +53,15 @@ const SearchForm = ({ setResults, setIsLoading }) => {
         />
         Organization
     </label>
-
-      <button type="submit">Submit</button>
-    </form>
+    </RadioButtonsContainer>
+    <StyledLabel>
+        Search:
+        <InputGroup>
+          <input type="text" value={query} onChange={handleSearchChange} />
+          <StyledButton type="submit">Submit</StyledButton>
+        </InputGroup>
+      </StyledLabel>
+    </StyledForm>
     </>
   )
 }

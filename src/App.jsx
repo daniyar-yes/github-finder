@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import SearchForm from './components/SearchForm';
-import SearchResults from './components/SearchResults';
-import './App.css'
-
+import SearchForm from './components/SearchForm/SearchForm';
+import SearchResults from './components/SearchResults/SearchResults';
+import GlobalStyles from './components/styles/Global';
 
 const App = () => {
   
@@ -10,7 +9,9 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
+    
     <>
+      <GlobalStyles />
       <p>Github Search App</p>
       <SearchForm setResults={setResults} setIsLoading={setIsLoading} />
       {isLoading ? (
@@ -20,6 +21,7 @@ const App = () => {
         <p>No results found</p>
       )}
     </>
+    
   )
 }
 
