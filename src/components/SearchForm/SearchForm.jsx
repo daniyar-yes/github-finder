@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import SearchResults from '../SearchResults/SearchResults.jsx';
 import { 
   StyledForm, 
   InputGroup, 
@@ -8,11 +10,20 @@ import {
   RadioButtonsContainer } from './SearchForm.styled.js'
 
 
-const SearchForm = ({ setResults, setIsLoading }) => {
+const SearchForm = () => {
 
   const [query, setQuery] = useState('');
   const [queryType, setQueryType] = useState('');
-  
+  const [results, setResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { query: routeQuery } = useParams();
+
+  useEffect(() => {
+    if (routeQuery) {
+      setQuery(decodeURIComponent(routeQuery));
+    }
+  }, [routeQuery]);
 
   const handleSearchChange = (e) => {
     if (e.target.value.length <= 250) {
@@ -26,14 +37,19 @@ const SearchForm = ({ setResults, setIsLoading }) => {
     setQueryType(e.target.value)
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (!query.trim()) {
       alert('Search Input is required');
       return;
     }
 
+    navigate(`/search/${encodeURIComponent(query)}`);
+    fetchResults();
+  }
+
+  const fetchResults = async () => {
     setIsLoading(true);
 
     try {
@@ -47,8 +63,10 @@ const SearchForm = ({ setResults, setIsLoading }) => {
       setIsLoading(false);
     }
   };
+
   return (
     <>
+    <main>
     <StyledForm onSubmit={handleSubmit}>
       <StyledFieldset>
         <legend>Search for GitHub Users or Organizations:</legend>
@@ -84,6 +102,14 @@ const SearchForm = ({ setResults, setIsLoading }) => {
           </InputGroup>
       </StyledFieldset>
     </StyledForm>
+    {isLoading ? (
+        <p>Loading...</p>
+      ) : results.length > 0 ? (
+        <SearchResults results={results} />
+      ) : (
+        <p>No results found</p>
+      )}
+      </main>
     </>
   )
 }
