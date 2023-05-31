@@ -13,7 +13,7 @@ import {
 const SearchForm = () => {
 
   const [query, setQuery] = useState('');
-  const [queryType, setQueryType] = useState('');
+  const [queryType, setQueryType] = useState('+type:user');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -57,6 +57,7 @@ const SearchForm = () => {
       const data = await response.json();
       console.log(data);
       setResults(data.items)
+      console.log(response.status)
     } catch (error) {
       console.error('Error:', error);
     } finally {
@@ -75,8 +76,8 @@ const SearchForm = () => {
                       type="radio"
                       id="user"
                       name="userType"
-                      value=""
-                      checked={queryType === ''}
+                      value="+type:user"
+                      checked={queryType === '+type:user'}
                       onChange={handleQueryTypeChange} 
                   />
                   <label htmlFor="user">
@@ -104,7 +105,7 @@ const SearchForm = () => {
     </StyledForm>
     {isLoading ? (
         <p>Loading...</p>
-      ) : results.length > 0 ? (
+      ) : results?.length > 0 ? (
         <SearchResults results={results} />
       ) : (
         <p>No results found</p>

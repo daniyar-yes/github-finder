@@ -31,6 +31,7 @@ const SearchItem = ({ item }) => {
           <a href={item.html_url} title={item.login} target="_blank" rel="noreferrer">{item.login}</a>
         </h2>
         <span>ID: {item.id}</span>
+        <span>Type: {item.type}</span>
         {hasFetchedFollowers
           ? followers < 30
             ? <span>{`${followers} followers`}</span>
