@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { StyledForm, InputGroup, StyledButton, StyledFieldset, RadioButtonsContainer } from './SearchForm.styled.js'
 

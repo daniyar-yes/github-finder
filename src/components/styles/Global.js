@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
 
   footer {
     text-align: center;
-    padding-top: 10px;
+    padding: 10px;
   }
 
   #root {

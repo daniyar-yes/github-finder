@@ -18,7 +18,7 @@ const App = () => {
     
     <>
       <GlobalStyles />
-      <header>Welcome to GitHub Finder!</header>
+      <header><h2>Welcome to GitHub Finder!</h2></header>
       <main>
       <SearchForm setResults={searchCallback} setIsLoading={setIsLoading} />
       {isLoading ? (

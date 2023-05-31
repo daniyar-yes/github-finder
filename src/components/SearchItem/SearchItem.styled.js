@@ -15,9 +15,9 @@ export const StyledSearchItem = styled.div`
 `;
 
 export const StyledAvatar = styled.img`
-        width: 100px;
-        height: 100px;
-        margin-right: 1em;
+    width: 100px;
+    height: 100px;
+    margin-right: 1em;
 `
 
 export const StyledDescription = styled.div`
@@ -26,4 +26,9 @@ export const StyledDescription = styled.div`
     padding-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-items: flex-start;
+
+    h2 {
+        margin-top: 0px;
+    }
 `

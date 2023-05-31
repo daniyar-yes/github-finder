@@ -46,5 +46,5 @@ export const RadioButtonsContainer = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    padding-top: 5px;
+    padding: 5px;
 `;
